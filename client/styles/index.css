@@ -3,6 +3,14 @@ body,
 #app {
   padding: 0;
   margin: 0;
-  background-color: whitesmoke;
+  background-color: white;
   font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:visited {
+  color: inherit;
 }

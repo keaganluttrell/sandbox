@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SplitPane from 'react-split-pane';
 import '../styles/sandbox.css'
-
 import Editor from './Editor.jsx';
 
 const runCode = (html, css, js) => {
@@ -24,7 +23,6 @@ const split = { editor: 'horizontal', output: 'vertical' };
 export default function SandBox({ baseHtml, baseCss, baseJs }) {
   const [height, setHeight] = useState('100vh');
   const [view, setView] = useState(standard);
-
   const [html, setHtml] = useState(baseHtml);
   const [css, setCss] = useState(baseCss);
   const [js, setJs] = useState(baseJs);

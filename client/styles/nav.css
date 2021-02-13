@@ -13,40 +13,22 @@
   transition-duration: .5s;
   padding: 10px;
 }
-.selected {
-    justify-self: center;
-    cursor: pointer;
-    transition-duration: .5s;
-    padding: 10px;
-}
+
 .link:hover {
   color: tan;
 }
 
-.selected {
-  color: tan;
-}
-
-#logo {
+#nav-logo {
   grid-column: 1;
   cursor: pointer;
 }
 
-#logo i {
+#nav-logo i {
   font-size: 30px;
   padding: 15px;
   color: tan;
 }
-
-#run{
-  grid-column: 3;
-}
-
-#save{
-  grid-column: 4;
-}
-
-#user {
+#nav-user {
   grid-column: 5;
   font-size: 25px;
 }
