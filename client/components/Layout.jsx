@@ -22,6 +22,7 @@ export default function Layout() {
     background-color: antiquewhite;
     text-align: center;
     font-family: tahoma;
+    height: 2000px
   }
   #hello {
     background-color: white;
