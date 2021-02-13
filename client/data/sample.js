@@ -1,9 +1,9 @@
 export default [
   {
-    _id: '1',
+    boxid: '1',
     html: `<div id='hello'>Hello World! 1<div>`,
     css: `body {
-      background-color: antiquewhite;
+      background-color: lightblue;
       text-align: center;
       font-family: tahoma;
       height: 2000px
@@ -14,7 +14,7 @@ export default [
     js: `document.write('From Sandbox!');`
   },
   {
-    _id: '2',
+    boxid: '2',
     html: `<div id='hello'>Hello World! 2<div>`,
     css: `body {
       background-color: antiquewhite;
@@ -28,10 +28,10 @@ export default [
     js: `document.write('From Sandbox!');`
   },
   {
-    _id: '3',
+    boxid: '3',
     html: `<div id='hello'>Hello World! 3<div>`,
     css: `body {
-      background-color: antiquewhite;
+      background-color: salmon;
       text-align: center;
       font-family: tahoma;
       height: 2000px
@@ -42,10 +42,10 @@ export default [
     js: `document.write('From Sandbox!');`
   },
   {
-    _id: '4',
+    boxid: '4',
     html: `<div id='hello'>Hello World! 4<div>`,
     css: `body {
-      background-color: antiquewhite;
+      background-color: seagreen;
       text-align: center;
       font-family: tahoma;
       height: 2000px
@@ -56,10 +56,10 @@ export default [
     js: `document.write('From Sandbox!');`
   },
   {
-    _id: '5',
+    boxid: '5',
     html: `<div id='hello'>Hello World! 5<div>`,
     css: `body {
-      background-color: antiquewhite;
+      background-color: tomato;
       text-align: center;
       font-family: tahoma;
       height: 2000px
@@ -70,10 +70,10 @@ export default [
     js: `document.write('From Sandbox!');`
   },
   {
-    _id: '6',
+    boxid: '6',
     html: `<div id='hello'>Hello World! 6<div>`,
     css: `body {
-      background-color: antiquewhite;
+      background-color: cornflowerblue;
       text-align: center;
       font-family: tahoma;
       height: 2000px

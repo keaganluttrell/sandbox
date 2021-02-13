@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import SplitPane from 'react-split-pane';
 import '../styles/sandbox.css'
 import Editor from './Editor.jsx';
@@ -21,6 +22,8 @@ const standard = { editor: 'vertical', output: 'horizontal' };
 const split = { editor: 'horizontal', output: 'vertical' };
 
 export default function SandBox({ baseHtml, baseCss, baseJs }) {
+  const { boxid } = useParams();
+  console.log(boxid); // make a get request to return box!!
   const [height, setHeight] = useState('100vh');
   const [view, setView] = useState(standard);
   const [html, setHtml] = useState(baseHtml);

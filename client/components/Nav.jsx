@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/nav.css';
 
-export default function Nav() {
+export default function Nav({ user }) {
 
   return (
     <div id='nav'>
@@ -17,7 +17,7 @@ export default function Nav() {
         className="link"
         id="nav-user"
       >
-        <Link to="/user">
+        <Link to={`/user/${user.username}`}>
           <i className="fas fa-user-circle" />
         </Link>
       </div>

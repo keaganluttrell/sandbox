@@ -1,11 +1,12 @@
-import React from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link, useParams } from "react-router-dom";
 
 export default function User() {
+  const { username } = useParams();
+  console.log(username)
   return (
     <div>
       USER
-      <Link to="/">Home</Link>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import '../styles/boxItem.css';
 
 const runCode = (html, css, js) => {
@@ -17,14 +18,16 @@ const runCode = (html, css, js) => {
 
 export default function BoxItem({ item }) {
   return (
-    <div className="box-item">
-      <iframe
-        srcDoc={runCode(item.html, item.css, item.js)}
-        frameBorder="0"
-        className="box-preview"
-        height="300px"
-        width="300px"
-      />
-    </div>
+    <Link to={`/box/${item.boxid}`}>
+      <div className="box-item">
+        <iframe
+          srcDoc={runCode(item.html, item.css, item.js)}
+          frameBorder="0"
+          className="box-preview"
+          height="300px"
+          width="300px"
+        />
+      </div>
+    </Link>
   );
 };
