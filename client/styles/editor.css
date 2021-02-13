@@ -1,0 +1,13 @@
+.container {
+  background-color: black;
+  height: 100%;
+  color: tan;
+}
+
+.title {
+  padding: 3px;
+  font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bold;
+  padding-left: 5px;
+  font-size: 12px;
+}

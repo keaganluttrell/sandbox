@@ -1,0 +1,49 @@
+{
+  "ghrsea14-mvp": {
+    "configuration": {
+      "config": {
+        "configName": "config",
+        "topScope": [
+          "const path = require('path');",
+          "const webpack = require('webpack');",
+          "\n"
+        ],
+        "webpackOptions": {
+          "mode": "'development'",
+          "entry": "'./client/index.js'",
+          "output": {
+            "path": "path.resolve(__dirname, 'public')"
+          },
+          "plugins": [
+            "new webpack.ProgressPlugin()"
+          ],
+          "module": {
+            "rules": [
+              {
+                "test": "/\\.(js|jsx)$/",
+                "include": [
+                  "path.resolve(__dirname, 'client')"
+                ],
+                "loader": "'babel-loader'"
+              },
+              {
+                "test": "/.css$/",
+                "use": [
+                  {
+                    "loader": "\"style-loader\""
+                  },
+                  {
+                    "loader": "\"css-loader\"",
+                    "options": {
+                      "sourceMap": true
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

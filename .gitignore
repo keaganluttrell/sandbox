@@ -1,5 +1,5 @@
 ### node etc ###
-
+main.js
 # Logs
 logs
 *.log
@@ -33,3 +33,5 @@ bower_components/
 .floobit
 .floo
 .flooignore
+
+.env

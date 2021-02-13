@@ -1,0 +1,52 @@
+#nav {
+  display: grid;
+  grid-template-columns: 200px auto 100px 100px 100px 20px;
+  grid-template-rows: 35px;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.824);
+  color: whitesmoke;
+  font-family: sans-serif;
+}
+.link {
+  justify-self: center;
+  cursor: pointer;
+  transition-duration: .5s;
+  padding: 10px;
+}
+.selected {
+    justify-self: center;
+    cursor: pointer;
+    transition-duration: .5s;
+    padding: 10px;
+}
+.link:hover {
+  color: tan;
+}
+
+.selected {
+  color: tan;
+}
+
+#logo {
+  grid-column: 1;
+  cursor: pointer;
+}
+
+#logo i {
+  font-size: 30px;
+  padding: 15px;
+  color: tan;
+}
+
+#run{
+  grid-column: 3;
+}
+
+#save{
+  grid-column: 4;
+}
+
+#user {
+  grid-column: 5;
+  font-size: 25px;
+}
