@@ -1,4 +1,4 @@
-# 🚀 Welcome to your new awesome project!
+# 🚀 Welcome to the Sandbox!
 
 This project has been created using **webpack scaffold**, you can now run
 
@@ -12,4 +12,12 @@ or
 yarn build
 ```
 
-to bundle your application
+to bundle this application
+
+then
+
+```
+npm start
+```
+
+to start the server!
