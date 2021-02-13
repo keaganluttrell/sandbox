@@ -4,11 +4,35 @@ import '../styles/sandbox.css'
 
 import Editor from './Editor.jsx';
 
-export default function SandBox({ html, setHtml, css, setCss, setJs, js, output }) {
-  const standard = { editor: 'vertical', output: 'horizontal' }
-  const split = { editor: 'horizontal', output: 'vertical' }
+const runCode = (html, css, js) => {
+  return `
+  <html>
+  <style>
+  ${css}
+  </style>
+  <body>
+  ${html}
+  <script type="text/javascript"> ${js} </script>
+  </body>
+  </html>
+  `;
+};
+
+const standard = { editor: 'vertical', output: 'horizontal' };
+const split = { editor: 'horizontal', output: 'vertical' };
+
+export default function SandBox({ baseHtml, baseCss, baseJs }) {
   const [height, setHeight] = useState('100vh');
   const [view, setView] = useState(standard);
+
+  const [html, setHtml] = useState(baseHtml);
+  const [css, setCss] = useState(baseCss);
+  const [js, setJs] = useState(baseJs);
+  const [output, setOutput] = useState(runCode(html, css, js));
+
+  useEffect(() => {
+    setOutput(runCode(html, css, js));
+  }, [output])
 
   return (
     <>
@@ -46,23 +70,25 @@ export default function SandBox({ html, setHtml, css, setCss, setJs, js, output 
         </SplitPane>
       </div>
       <div id="controls">
-        <div className="btns" id="run">
-          <span>Run</span>
+        <div className="btns" id="run"
+          onClick={() => { setOutput(runCode(html, css, js)) }}
+        >
           <i className="far fa-play-circle" />
         </div>
+
         <div className="btns">
-          <span>Save</span>
           <i className="fas fa-cloud-upload-alt" />
         </div>
+
         <div
           className="btns"
           onClick={() => {
             view.output === 'vertical' ? setView(standard) : setView(split)
           }}
         >
-          <span>View</span>
           <i className={`fas fa-ruler-${view.output}`} />
         </div>
+
       </div>
     </>
   );
