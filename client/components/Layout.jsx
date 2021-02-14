@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
+  useHistory,
   Route,
   Link
 } from "react-router-dom";
@@ -32,14 +33,13 @@ const defaultUser = {
 
 export default function Layout() {
   const [user, setUser] = useState(defaultUser);
-  // on sign in, set user
 
   return (
     <div id='layout'>
       <Router>
         <Nav user={user} />
-        <Route exact path='/' > <Home user={user} /></Route >
-        <Route path="/user/:username" children={<User />} />
+        <Route exact path='/' children={<Home user={user} />} />
+        <Route path="/user/:username" children={<User setUser={setUser} user={user} />} />
         <Route path="/box/:boxid" children={<SandBox baseHtml={html} baseCss={css} baseJs={js} />} />
       </Router >
     </div >
