@@ -8,6 +8,10 @@
 }
 
 .title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   padding: 3px;
   font-family:'Segoe UI', 'Open Sans', 'Helvetica Neue', sans-serif;
   font-weight: bold;
@@ -34,4 +38,62 @@
 
 .btns:hover{
   border-bottom: 1px solid tan;
+}
+
+.editor-theme {
+  position: relative;
+  margin-left: 20px;
+  width: 140px;
+  text-align: left;
+}
+
+.dropdown-open {
+  display: flex;
+  flex-direction: column;
+  background-color: rgba(255, 255, 255, 0.702);
+  position: absolute;
+  z-index: 100000;
+  width: 140px;
+  margin-top: 2px;
+  left: -3px;
+  color: black;
+  font-weight: 400;
+  overflow: scroll;
+  height: 300px;
+  border: rgba(0, 0, 0, 0.696) solid 1px;
+}
+
+.selection {
+  font-weight: 400;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding-right: 2px;
+  transition-duration: .5s;
+}
+
+#selection-angle {
+  transition-duration: .5s;
+}
+
+.dropdown-closed {
+  display: none;
+}
+
+.dropdown-item {
+  cursor: pointer;
+  padding: 5px 0px 5px 5px;
+}
+
+.dropdown-selected {
+  background-color: rgba(0, 0, 0, 0.518);
+  color: rgba(255, 255, 255, 0.702);
+  cursor: pointer;
+  padding: 5px 0px 5px 5px;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 0, 0, 0.264);
 }

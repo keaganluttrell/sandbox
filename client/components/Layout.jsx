@@ -12,7 +12,7 @@ import Home from './Home.jsx';
 import SandBox from './SandBox.jsx';
 import User from './User.jsx';
 
-const html = `<div id='hello'>Hello World!<div>`
+const html = `<div id='hello'>Hello World!</div>`
 const js = `document.write('From Sandbox!');`
 const css = `body {
   background-color: antiquewhite;

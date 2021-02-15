@@ -13,7 +13,7 @@ const runCode = (html, css, js) => {
   </style>
   <body>
   ${html}
-  <script type="text/javascript"> ${js} </script>
+  <script type="application/javascript"> ${js} </script>
   </body>
   </html>
   `;
