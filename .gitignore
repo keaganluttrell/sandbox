@@ -1,5 +1,5 @@
 ### node etc ###
-main.js
+public/*.js
 # Logs
 logs
 *.log

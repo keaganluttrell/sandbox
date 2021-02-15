@@ -109,7 +109,7 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
 
         <div className="btns"
           onClick={() => {
-            if (user.userid === 'default') {
+            if (user.userid === null) {
               setMsg('Please log in or sign up!');
               setTimeout(() => setMsg(''), 5000);
 
