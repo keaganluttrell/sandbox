@@ -25,7 +25,7 @@ const split = { editor: 'horizontal', output: 'vertical' };
 export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
 
   const [boxid, setBoxId] = useState(useParams().boxid);
-  const [height, setHeight] = useState('100vh');
+  const [height, setHeight] = useState('500px');
   const [view, setView] = useState(standard);
   const [html, setHtml] = useState(baseHtml);
   const [css, setCss] = useState(baseCss);
@@ -63,7 +63,7 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
           split={view.output}
           minSize={"50%"}
           onDragFinished={(h) => {
-            setHeight(`100vh`);
+            setHeight(`${h + 40}px`);
           }}
         >
           <SplitPane split={view.editor} minSize={"33%"}>

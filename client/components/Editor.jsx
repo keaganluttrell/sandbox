@@ -27,7 +27,7 @@ export default function Editor({ title, height, value, inputHandler }) {
         onChange={inputHandler}
         value={value}
         width={'100%'}
-        height={'100vh'}
+        height={height}
         setOptions={{
           useWorker: false,
         }}
