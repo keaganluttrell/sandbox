@@ -4,6 +4,7 @@ import axios from 'axios';
 export default function Login({ setView, setUser }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [msg, setMessage] = useState('');
 
   return (
     <div className="authentication">
@@ -13,6 +14,7 @@ export default function Login({ setView, setUser }) {
           <span>Sandbox</span>
         </div>
         <div>Login</div>
+        <div className="auth-msg">{msg}</div>
       </div>
 
       <form>
@@ -36,10 +38,18 @@ export default function Login({ setView, setUser }) {
             const options = { headers: { username, password } };
             axios.get('/api/login', options)
               .then(results => {
+                if (!results.data) throw results;
                 setUser(results.data);
                 setView('');
                 setUsername('');
                 setPassword('');
+                setMessage('');
+              })
+              .catch(() => {
+                setView('login');
+                setUsername('');
+                setPassword('');
+                setMessage('Invalid username or password, please try again');
               });
           }}
         />

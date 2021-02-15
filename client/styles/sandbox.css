@@ -65,8 +65,28 @@ iframe {
   left: 50%;
   top: 0px;
   height: 35px;
-  width: 300px;
-  margin-left: -150px;
-  color: whitesmoke;
+  width: 400px;
+  margin-left: -290px;
+  color: rgb(205, 203, 203);
   z-index: 1;
+}
+
+#box-name {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: rgb(68, 84, 84);
+  transition-duration: .5s;
+}
+
+#box-name:focus {
+  color: rgb(205, 203, 203);
+}
+
+#control-msg {
+  position: fixed;
+  left: 65%;
+  top: 10px;
+  font-size: 12px;
+  color: rgb(205, 203, 203);
 }

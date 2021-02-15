@@ -4,7 +4,7 @@
   grid-template-rows: 35px;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.824);
-  color: whitesmoke;
+  color: rgb(205, 203, 203);
   font-family: sans-serif;
 }
 .link {
@@ -21,6 +21,10 @@
 #nav-logo {
   grid-column: 1;
   cursor: pointer;
+}
+
+#nav-logo:visited {
+  color: rgb(205, 203, 203);
 }
 
 #nav-logo i {

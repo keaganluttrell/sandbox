@@ -12,5 +12,6 @@ a {
 }
 
 a:visited {
-  color: inherit;
+  color: unset;
 }
+

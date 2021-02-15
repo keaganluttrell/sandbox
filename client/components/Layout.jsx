@@ -40,7 +40,7 @@ export default function Layout() {
         <Nav user={user} />
         <Route exact path='/' children={<Home user={user} />} />
         <Route path="/user/:username" children={<User setUser={setUser} user={user} />} />
-        <Route path="/box/:boxid" children={<SandBox baseHtml={html} baseCss={css} baseJs={js} />} />
+        <Route path="/box/:boxid" children={<SandBox user={user} baseHtml={html} baseCss={css} baseJs={js} />} />
       </Router >
     </div >
   );

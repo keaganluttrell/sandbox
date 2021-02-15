@@ -54,6 +54,12 @@
   border-bottom-right-radius: 5px;
 }
 
+.auth-msg {
+  margin-top: 5px;
+  color: tomato;
+  font-size: 12px;
+}
+
 #form-submit {
   background-color: rgba(0, 0, 0, 0.819);
   border: 3px rgba(0, 0, 0, 0.819);

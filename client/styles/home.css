@@ -1,8 +1,13 @@
 #featured {
   max-width: 950px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.881);
-  margin: 0 auto;
+  /* border-bottom: 1px solid tan; */
+  background: linear-gradient(0deg, black, transparent);
+  margin: 10px auto;
   padding: 10px;
+  font-size: 16px;
+  color: tan;
+  font-weight: 500;
+  border-radius: 10px;
 }
 
 #home .list{
@@ -41,7 +46,7 @@
   background-color: lightseagreen;
 }
 .info-item:nth-child(2) {
-  background-color: lightsalmon;
+  background-color: salmon;
   cursor: pointer;
 }
 .info-item:nth-child(3) {
@@ -60,11 +65,4 @@
 
 .info-item li {
   padding: 5px;
-}
-
-#featured {
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.826);
-  font-weight: 700;
-  margin-bottom: 10px;
 }

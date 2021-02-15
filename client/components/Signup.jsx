@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router';
 
 
 export default function Signup({ setView, setUser }) {
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-
+  const [msg, setMessage] = useState('');
 
   return (
     <div className="authentication">
@@ -16,7 +15,8 @@ export default function Signup({ setView, setUser }) {
           <i className="fab fa-fort-awesome" />
           <span>Sandbox</span>
         </div>
-        <div>Sign Up</div>
+        <div>Signup</div>
+        <div className="auth-msg">{msg}</div>
       </div>
       <form>
         <input
@@ -46,16 +46,24 @@ export default function Signup({ setView, setUser }) {
               email,
               username,
               password,
-              boxes: [],
               avatar: "https://loremflickr.com/cache/resized/5726_22733515655_8d6350f645_n_320_240_nofilter.jpg"
             };
             axios.post('/api/signup', newUser)
               .then(results => {
+                if (results.data.errno) throw results;
                 setUser(results.data);
                 setView('');
                 setEmail('');
                 setUsername('');
                 setPassword('');
+                setMessage('');
+              })
+              .catch(() => {
+                setView('signup');
+                setEmail('');
+                setUsername('');
+                setPassword('');
+                setMessage('Username or Email is taken, please try again');
               });
           }}
         />

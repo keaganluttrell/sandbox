@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import SplitPane from 'react-split-pane';
@@ -21,15 +22,35 @@ const runCode = (html, css, js) => {
 const standard = { editor: 'vertical', output: 'horizontal' };
 const split = { editor: 'horizontal', output: 'vertical' };
 
-export default function SandBox({ baseHtml, baseCss, baseJs }) {
-  const { boxid } = useParams();
-  console.log(boxid); // make a get request to return box!!
+export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
+
+  const [boxid, setBoxId] = useState(useParams().boxid);
   const [height, setHeight] = useState('100vh');
   const [view, setView] = useState(standard);
   const [html, setHtml] = useState(baseHtml);
   const [css, setCss] = useState(baseCss);
   const [js, setJs] = useState(baseJs);
+  const [name, setName] = useState('untitled');
+  const [author, setAuthor] = useState('');
   const [output, setOutput] = useState(runCode(html, css, js));
+  const [msg, setMsg] = useState('');
+
+  useEffect(() => {
+    if (boxid !== 'temp') {
+      axios.get(`/api/box/?boxid=${boxid}`)
+        .then(results => {
+          const { boxid, html, css, js, name, userid } = results.data;
+          setHtml(html);
+          setCss(css);
+          setJs(js);
+          setName(name || 'untitled');
+          setAuthor(userid);
+          setBoxId(boxid);
+          setOutput('');
+        })
+        .catch(e => resizeBy.send(e));
+    }
+  }, [])
 
   useEffect(() => {
     setOutput(runCode(html, css, js));
@@ -71,13 +92,59 @@ export default function SandBox({ baseHtml, baseCss, baseJs }) {
         </SplitPane>
       </div>
       <div id="controls">
+        <input
+          id="box-name"
+          type="text"
+          value={name}
+          placeholder="untitled"
+          autoComplete="off"
+          onChange={(e) => setName(e.target.value)}
+        />
+
         <div className="btns" id="run"
           onClick={() => { setOutput(runCode(html, css, js)) }}
         >
           <i className="far fa-play-circle" />
         </div>
 
-        <div className="btns">
+        <div className="btns"
+          onClick={() => {
+            if (user.userid === 'default') {
+              setMsg('Please log in or sign up!');
+              setTimeout(() => setMsg(''), 5000);
+
+            } else if (user.userid === author) {
+
+              axios.put(`/api/box/${boxid}`, { html, css, js, name })
+                .then(() => {
+                  setMsg('Saved!');
+                  setTimeout(() => setMsg(''), 5000);
+                })
+                .catch((e) => {
+                  console.log(e);
+                  setMsg('unable to save')
+                  setTimeout(() => setMsg(''), 5000);
+                });
+
+            } else {
+
+              const box = { boxid: null, html, css, js, name, userid: user.userid }
+              setMsg('Saving...');
+
+              axios.post('/api/box', box)
+                .then(results => {
+                  setAuthor(user.userid);
+                  setBoxId(results.data);
+                  setMsg('Saved!');
+                  setTimeout(() => setMsg(''), 5000);
+                })
+                .catch((e) => {
+                  setMsg('Unable to save');
+                  setTimeout(() => setMsg(''), 5000);
+                });
+            }
+          }}
+        >
           <i className="fas fa-cloud-upload-alt" />
         </div>
 
@@ -89,8 +156,8 @@ export default function SandBox({ baseHtml, baseCss, baseJs }) {
         >
           <i className={`fas fa-ruler-${view.output}`} />
         </div>
-
       </div>
+      <div id="control-msg">{msg}</div>
     </>
   );
 };

@@ -1,11 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 import samples from '../data/sample.js';
 import List from './List.jsx';
 import '../styles/home.css';
+import axios from 'axios';
+
+
 
 export default function Home({ user }) {
-  const [list, setList] = useState(samples);
+  const [list, setList] = useState([]);
+
+  const getFeatured = () => {
+    axios.get('/api/featured')
+      .then(results => {
+        setList(results.data)
+      })
+      .catch(e => console.log(e));
+  }
+
+  useEffect(() => {
+    getFeatured();
+  }, []);
+
   return (
     <div id="home">
       <div id="welcome-dash" className="list">
