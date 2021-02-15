@@ -26,9 +26,9 @@ const css = `body {
 `;
 
 const defaultUser = {
-  userid: 'default',
+  userid: null,
   username: 'guest',
-  avatar: '',
+  avatar: 'https://i.picsum.photos/id/861/200/200.jpg?hmac=UJSK-tjn1gjzSmwHWZhjpaGahNSBDQWpMoNvg8Bxy8k',
 }
 
 export default function Layout() {

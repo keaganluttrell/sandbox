@@ -79,11 +79,14 @@
   flex-direction: row;
   align-items: baseline;
   margin: 15px;
+  font-size: 14px;
 }
 .auth-switch-btn {
   margin: 10px;
   cursor: pointer;
   transition-duration: .5s;
+  text-decoration: underline;
+  font-size: 14px;
 }
 .auth-switch-btn:hover {
   color:tan;
@@ -92,15 +95,17 @@
 
 #user-dash{
   display: grid;
-  grid-template-columns: 300px auto;
-  height: 100vh;
+  grid-template-columns: 250px auto;
+  /* height: 100vh; */
 }
 
 #user-info {
   grid-column: 1;
   display: grid;
   grid-template-rows: 50px auto;
-  background-color: cornflowerblue;
+  background-color: darkslategrey;
+  border-right: rgba(0, 0, 0, 0.476) 1px solid;
+  height: calc(100vh - 35px);
 }
 
 #user-group {
@@ -109,13 +114,15 @@
   width:100%;
   height: 100%;
   align-items: center;
+  padding: 10px;
+  color: rgb(205, 203, 203);
 }
 
 #user-avatar img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-left: 5px;
+  margin-right: 10px;
 }
 
 #user-username {
@@ -124,5 +131,17 @@
 
 #user-feed {
   grid-column: 2;
-  background-color: lightcoral;
+  background-color: darkslategrey;
+  height: calc(100vh - 35px);
+  overflow: scroll;
+}
+
+#user-feed .list {
+  max-width: 1000px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  justify-content: center;
+  padding: 0;
 }

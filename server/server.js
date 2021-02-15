@@ -39,6 +39,7 @@ app.get('/api/box/', (req, res) => {
     db.getBox(boxid)
       .then(packet => res.send(packet[0]))
   } else if (userid) {
+    console.log(userid)
     db.getAllUserBoxes(userid)
       .then(packet => res.send(packet))
       .catch(e => res.send(e));
