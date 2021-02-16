@@ -39,7 +39,6 @@ app.get('/api/box/', (req, res) => {
     db.getBox(boxid)
       .then(packet => res.send(packet[0]))
   } else if (userid) {
-    console.log(userid)
     db.getAllUserBoxes(userid)
       .then(packet => res.send(packet))
       .catch(e => res.send(e));
@@ -64,10 +63,7 @@ app.put('/api/box/:boxid', (req, res) => {
 app.patch('/api/views/:boxid', (req, res) => {
   const { boxid } = req.params;
   db.updateBoxFieldByOne('views', boxid)
-    .then((x) => {
-      console.log(x);
-      res.send('ok')
-    })
+    .then(() => res.send('ok'))
     .catch(e => res.send(e));
 });
 
@@ -80,7 +76,6 @@ app.patch('/api/likes/:boxid', (req, res) => {
 
 app.delete('/api/box/:boxid', (req, res) => {
   const { boxid } = req.params;
-  console.log('delete')
   db.removeOneBox(boxid)
     .then(() => res.send('ok'))
     .catch(e => res.send(e));

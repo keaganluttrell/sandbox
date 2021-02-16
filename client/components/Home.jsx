@@ -7,9 +7,8 @@ import axios from 'axios';
 
 
 
-export default function Home({ user }) {
+export default function Home({ user, userLikes, setUserLikes }) {
   const [list, setList] = useState([]);
-
   const getFeatured = () => {
     axios.get('/api/featured')
       .then(results => {
@@ -45,7 +44,7 @@ export default function Home({ user }) {
         </div>
       </div>
 
-      <List list={list} />
+      <List list={list} userLikes={userLikes} setUserLikes={setUserLikes} />
     </div>
   );
 };

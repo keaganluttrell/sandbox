@@ -6,7 +6,7 @@ import Login from './Login.jsx';
 import Signup from './Signup.jsx';
 import List from './List.jsx';
 
-export default function User({ setUser, user }) {
+export default function User({ setUser, user, userLikes, setUserLikes }) {
   const { username } = useParams();
   const [view, setView] = useState(username === 'guest' ? 'login' : username);
   const [list, setList] = useState([]);
@@ -52,7 +52,13 @@ export default function User({ setUser, user }) {
                 <p>Start Something Now!</p>
               </div>
             </div>
-            <List list={list} author={true} setModal={setModal} />
+            <List
+              list={list}
+              author={true}
+              setModal={setModal}
+              userLikes={userLikes}
+              setUserLikes={setUserLikes}
+            />
           </div>
         </div>
         <div id={modal ? 'panel-alert' : 'panel-hidden'}>

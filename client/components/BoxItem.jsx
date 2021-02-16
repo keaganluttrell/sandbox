@@ -17,8 +17,15 @@ const runCode = (html, css, js) => {
   `;
 };
 
-export default function BoxItem({ item, author, setModal }) {
+export default function BoxItem({
+  item,
+  author,
+  setModal,
+  userLikes,
+  setUserLikes
+}) {
   const [likes, setLikes] = useState(item.likes);
+  const isLiked = userLikes.some(id => id === item.boxid);
   return (
     <div className="box-item">
       <iframe
@@ -47,12 +54,21 @@ export default function BoxItem({ item, author, setModal }) {
         <div
           className="panel-likes"
           onClick={() => {
-            axios.patch(`/api/likes/${item.boxid}`)
-              .then(() => setLikes(likes + 1))
-              .catch(e => alert(e));
+            if (isLiked || author) {
+
+            } else {
+              axios.patch(`/api/likes/${item.boxid}`)
+                .then(() => {
+                  setLikes(likes + 1)
+                  const updated = userLikes.slice();
+                  updated.push(item.boxid);
+                  setUserLikes(updated);
+                })
+                .catch(e => alert(e));
+            }
           }}
         >
-          <i className="far fa-thumbs-up" />
+          <i className={`fa${isLiked || author ? 's' : 'r'} fa-thumbs-up`} />
           {likes}
         </div>
         <div

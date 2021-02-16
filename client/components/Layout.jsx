@@ -33,14 +33,44 @@ const defaultUser = {
 
 export default function Layout() {
   const [user, setUser] = useState(defaultUser);
+  const [userLikes, setUserLikes] = useState([]);
 
   return (
     <div id='layout'>
       <Router>
         <Nav user={user} />
-        <Route exact path='/' children={<Home user={user} />} />
-        <Route path="/user/:username" children={<User setUser={setUser} user={user} />} />
-        <Route path="/box/:boxid" children={<SandBox user={user} baseHtml={html} baseCss={css} baseJs={js} />} />
+        <Route
+          exact path='/'
+          children={
+            <Home
+              user={user}
+              userLikes={userLikes}
+              setUserLikes={setUserLikes}
+            />
+          }
+        />
+        <Route
+          path="/user/:username"
+          children={
+            <User
+              setUser={setUser}
+              user={user}
+              userLikes={userLikes}
+              setUserLikes={setUserLikes}
+            />
+          }
+        />
+        <Route
+          path="/box/:boxid"
+          children={
+            <SandBox
+              user={user}
+              baseHtml={html}
+              baseCss={css}
+              baseJs={js}
+            />
+          }
+        />
       </Router >
     </div >
   );
