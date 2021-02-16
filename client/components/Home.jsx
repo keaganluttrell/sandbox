@@ -45,7 +45,7 @@ export default function Home({ user }) {
         </div>
       </div>
 
-      <List list={list} title={'Featured Boxes'}/>
+      <List list={list} />
     </div>
   );
 };

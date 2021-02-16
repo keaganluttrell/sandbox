@@ -26,8 +26,8 @@ const css = `body {
 `;
 
 const defaultUser = {
-  userid: null,
-  username: 'guest',
+  userid: 1,
+  username: 'keagan9',
   avatar: 'https://i.picsum.photos/id/861/200/200.jpg?hmac=UJSK-tjn1gjzSmwHWZhjpaGahNSBDQWpMoNvg8Bxy8k',
 }
 
