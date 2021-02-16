@@ -1,19 +1,21 @@
 .authentication {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
+  height: 400px;
+  width: 400px;
+  margin: 20px auto;
   background-color: rgba(47, 79, 79, 0.894);
+  border-radius: 8px;
   align-items: center;
 }
 
 .auth-title {
-  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   color: whitesmoke;
+  margin-bottom: 40px;
 }
 
 .auth-title-logo  {
@@ -29,7 +31,6 @@
 }
 
 .authentication form {
-  margin-top: 10px;
   outline: none;
   width: 250px;
   display: flex;
@@ -103,7 +104,7 @@
   grid-column: 1;
   display: grid;
   grid-template-rows: 50px auto;
-  background-color: darkslategrey;
+  background-color: #3f5454;
   border-right: rgba(0, 0, 0, 0.476) 1px solid;
   height: calc(100vh - 35px);
 }
@@ -131,7 +132,6 @@
 
 #user-feed {
   grid-column: 2;
-  background-color: darkslategrey;
   height: calc(100vh - 35px);
   overflow: scroll;
 }

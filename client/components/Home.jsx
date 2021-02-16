@@ -24,7 +24,7 @@ export default function Home({ user }) {
 
   return (
     <div id="home">
-      <div id="welcome-dash" className="list">
+      <div id="welcome-dash">
         <div className="info-item">
           <div>Welcome!</div>
           <ul>

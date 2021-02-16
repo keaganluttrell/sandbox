@@ -23,7 +23,7 @@ export default function User({ setUser, user }) {
   } else {
     return (
       <>
-        <Redirect to={`user/${user.username}`} />
+        <Redirect to={`/user/${user.username}`} />
         <div id="user-dash">
           <div id="user-info">
             <div id="user-group">
