@@ -50,7 +50,7 @@ i {
 }
 
 .box-item:hover {
-  cursor: pointer;
+  /* cursor: pointer; */
   transform: scale(1.05);
 }
 

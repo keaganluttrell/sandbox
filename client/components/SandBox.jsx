@@ -161,6 +161,28 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
         >
           <i className={`fas fa-ruler-${view.output}`} />
         </div>
+
+        <div
+          className="btns"
+          id="ctl-pointer"
+          onClick={() => {
+            const iframe = document.getElementsByClassName('output')[0];
+            const pointer = document.getElementById('ctl-pointer');
+            iframe.style.pointerEvents = iframe.style.pointerEvents === 'all' ? 'none' : 'all';
+            if (iframe.style.pointerEvents === 'all') {
+              pointer.style.color = 'rgb(69, 229, 69)';
+              setMsg('Pointer events on');
+              setTimeout(() => setMsg(''), 2000);
+
+            } else {
+              pointer.style.color = 'rgb(205, 203, 203)';
+              setMsg('Pointer events off');
+              setTimeout(() => setMsg(''), 2000);
+            }
+          }}
+        >
+          <i className="fas fa-mouse-pointer" />
+        </div>
       </div>
       <div id="control-msg">{msg}</div>
     </>
