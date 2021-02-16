@@ -61,5 +61,30 @@ app.put('/api/box/:boxid', (req, res) => {
     .catch(e => res.send(e));
 });
 
+app.patch('/api/views/:boxid', (req, res) => {
+  const { boxid } = req.params;
+  db.updateBoxFieldByOne('views', boxid)
+    .then((x) => {
+      console.log(x);
+      res.send('ok')
+    })
+    .catch(e => res.send(e));
+});
+
+app.patch('/api/likes/:boxid', (req, res) => {
+  const { boxid } = req.params;
+  db.updateBoxFieldByOne('likes', boxid)
+    .then(() => res.send('ok'))
+    .catch(e => res.send(e));
+});
+
+app.delete('/api/box/:boxid', (req, res) => {
+  const { boxid } = req.params;
+  console.log('delete')
+  db.removeOneBox(boxid)
+    .then(() => res.send('ok'))
+    .catch(e => res.send(e));
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log('listening', PORT));

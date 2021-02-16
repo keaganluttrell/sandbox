@@ -29,6 +29,14 @@ const updateBox = (box, boxid) => {
   return db.queryAsync(query, [html, css, js, name, boxid]);
 }
 
+const updateBoxFieldByOne = (col, boxid) => {
+  return db.queryAsync(`update boxes set ${col} = ${col} + 1 where boxid = ${boxid}`);
+}
+
+const removeOneBox = (boxid) => {
+  return db.queryAsync('DELETE FROM boxes WHERE boxid = ?', [boxid]);
+};
+
 const getFeatured = () => {
   return db.queryAsync('select * from boxes limit 6');
 };
@@ -51,9 +59,6 @@ const getUser = (userid) => {
   return db.queryAsync('SELECT * FROM users WHERE userid = ?', [userid]);
 };
 
-const removeOne = (id) => {
-  return db.queryAsync('DELETE FROM movie_list WHERE id = ?', [id]);
-};
 
 module.exports = {
   getBox,
@@ -63,6 +68,7 @@ module.exports = {
   getUser,
   verifyUser,
   addUser,
-  removeOne,
+  updateBoxFieldByOne,
+  removeOneBox,
   getFeatured,
 };

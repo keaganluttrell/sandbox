@@ -70,9 +70,12 @@ export default function User({ setUser, user }) {
               type="button"
               value="Yes"
               onClick={() => {
-                alert('delete request to server');
-                // getUserBoxes();
-                setModal(false);
+                axios.delete(`/api/box/${modal}`)
+                  .then(() => {
+                    getUserBoxes();
+                    setModal(false);
+                  })
+                  .catch(e => alert(e));
               }}
             />
             <input

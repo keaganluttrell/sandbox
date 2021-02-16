@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState } from 'react';
 import { Link } from "react-router-dom";
 import '../styles/boxItem.css';
@@ -17,9 +18,8 @@ const runCode = (html, css, js) => {
 };
 
 export default function BoxItem({ item, author, setModal }) {
-  const getNum = () => Math.floor(Math.random() * 100);
+  const [likes, setLikes] = useState(item.likes);
   return (
-
     <div className="box-item">
       <iframe
         srcDoc={runCode(item.html, item.css, item.js)}
@@ -30,17 +30,30 @@ export default function BoxItem({ item, author, setModal }) {
       />
       <div className="panel">
         <Link to={`/box/${item.boxid}`}>
-          <div className="panel-box-name">
+          <div
+            className="panel-box-name"
+            onClick={() => {
+              axios.patch(`/api/views/${item.boxid}`)
+                .catch(e => alert(e));
+            }}
+          >
             {item.name}
           </div>
         </Link>
         <div className="panel-views">
           <i className="far fa-eye" />
-          {item.views || getNum()}
+          {item.views}
         </div>
-        <div className="panel-likes">
+        <div
+          className="panel-likes"
+          onClick={() => {
+            axios.patch(`/api/likes/${item.boxid}`)
+              .then(() => setLikes(likes + 1))
+              .catch(e => alert(e));
+          }}
+        >
           <i className="far fa-thumbs-up" />
-          {item.likes || getNum()}
+          {likes}
         </div>
         <div
           className={author ? "panel-remove" : "panel-remove-hide"}
@@ -49,6 +62,6 @@ export default function BoxItem({ item, author, setModal }) {
           <i className="far fa-trash-alt" />
         </div>
       </div>
-    </div>
+    </div >
   );
 };
