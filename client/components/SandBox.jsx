@@ -88,7 +88,12 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
               />
             </SplitPane>
           </SplitPane>
-          <iframe srcDoc={output} className="output" />
+          <iframe
+            seamless
+            srcDoc={output}
+            className="output"
+            sandbox="allow-scripts allow-pointer-lock"
+          />
         </SplitPane>
       </div>
       <div id="controls">

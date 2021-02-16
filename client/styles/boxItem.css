@@ -54,3 +54,12 @@ i {
   transform: scale(1.05);
 }
 
+.box-preview {
+  /* transform: scale(.5); */
+  pointer-events: none;
+  zoom: 50%;
+  overflow: hidden;
+  /* --aspect-ratio:1.4; */
+}
+
+

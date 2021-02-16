@@ -103,32 +103,55 @@
 #user-info {
   grid-column: 1;
   display: grid;
-  grid-template-rows: 50px auto;
+  grid-template-rows: 60px 60px auto;
   background-color: #3f5454;
   border-right: rgba(0, 0, 0, 0.476) 1px solid;
   height: calc(100vh - 35px);
 }
 
 #user-group {
+  grid-row :1;
   display: flex;
   flex-direction: row;
-  width:100%;
+  width: 100%;
   height: 100%;
   align-items: center;
-  padding: 10px;
   color: rgb(205, 203, 203);
+}
+
+#user-sign-out {
+  grid-row: 2;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;
+  justify-content: center;
+}
+
+#user-sign-out-btn input{
+  width: 150px;
+  cursor: pointer;
+  background-color: rgb(205, 203, 203);
+  border: none;
+  outline: none ;
+  border-radius: 5px;
+  transition-duration: .3s;
+}
+
+#user-sign-out-btn input:hover {
+  background-color: rgb(183, 183, 179);
 }
 
 #user-avatar img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  margin-right: 10px;
+  padding: 10px;
 }
 
-#user-username {
-  padding-left: 5px;
-}
+/* #user-username {
+
+} */
 
 #user-feed {
   grid-column: 2;

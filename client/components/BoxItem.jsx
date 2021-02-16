@@ -29,11 +29,12 @@ export default function BoxItem({
   return (
     <div className="box-item">
       <iframe
+        seamless
         srcDoc={runCode(item.html, item.css, item.js)}
         frameBorder="0"
         className="box-preview"
-        height="300px"
-        width="300px"
+        height="100vh"
+        width="100vw"
       />
       <div className="panel">
         <Link to={`/box/${item.boxid}`}>

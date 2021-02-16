@@ -6,12 +6,17 @@ import Login from './Login.jsx';
 import Signup from './Signup.jsx';
 import List from './List.jsx';
 
+const defaultUser = {
+  userid: null,
+  username: 'guest',
+  avatar: 'https://i.picsum.photos/id/861/200/200.jpg?hmac=UJSK-tjn1gjzSmwHWZhjpaGahNSBDQWpMoNvg8Bxy8k',
+}
+
 export default function User({ setUser, user, userLikes, setUserLikes }) {
   const { username } = useParams();
   const [view, setView] = useState(username === 'guest' ? 'login' : username);
   const [list, setList] = useState([]);
   const [modal, setModal] = useState(false);
-
 
   const getUserBoxes = () => {
     axios.get(`/api/box/?userid=${user.userid}`)
@@ -34,12 +39,28 @@ export default function User({ setUser, user, userLikes, setUserLikes }) {
         <Redirect to={`/user/${user.username}`} />
         <div id="user-dash">
           <div id="user-info">
+
             <div id="user-group">
               <div id="user-avatar">
                 <img src={user.avatar} />
               </div>
               <div id="user-username">{user.username}</div>
             </div>
+
+            <div id="user-sign-out">
+              <div id="user-sign-out-btn">
+                <input
+                  type="button"
+                  value="Sign Out"
+                  onClick={() => {
+                    setUser(defaultUser);
+                    alert('You have signed out');
+                    setTimeout(function () { setView('login') }, 50);
+                  }}
+                />
+              </div>
+            </div>
+
           </div>
           <div id="user-feed">
             <div className="list">

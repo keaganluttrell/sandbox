@@ -48,23 +48,28 @@ export default function Signup({ setView, setUser }) {
               password,
               avatar: "https://loremflickr.com/cache/resized/5726_22733515655_8d6350f645_n_320_240_nofilter.jpg"
             };
-            axios.post('/api/signup', newUser)
-              .then(results => {
-                if (results.data.errno) throw results;
-                setUser(results.data);
-                setView('');
-                setEmail('');
-                setUsername('');
-                setPassword('');
-                setMessage('');
-              })
-              .catch(() => {
-                setView('signup');
-                setEmail('');
-                setUsername('');
-                setPassword('');
-                setMessage('Username or Email is taken, please try again');
-              });
+
+            if (username.length < 1 || password.length < 1 || email.length < 1) {
+              setMessage('Please fill out all fields');
+            } else {
+              axios.post('/api/signup', newUser)
+                .then(results => {
+                  if (results.data.errno) throw results;
+                  setUser(results.data);
+                  setView('');
+                  setEmail('');
+                  setUsername('');
+                  setPassword('');
+                  setMessage('');
+                })
+                .catch(() => {
+                  setView('signup');
+                  setEmail('');
+                  setUsername('');
+                  setPassword('');
+                  setMessage('Username or Email is taken, please try again');
+                });
+            }
           }}
         />
       </form>
