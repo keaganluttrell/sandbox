@@ -92,7 +92,7 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
             seamless
             srcDoc={output}
             className="output"
-            sandbox="allow-scripts allow-pointer-lock"
+            sandbox="allow-scripts allow-pointer-lock allow-modals"
           />
         </SplitPane>
       </div>
@@ -165,6 +165,7 @@ export default function SandBox({ user, baseHtml, baseCss, baseJs }) {
         <div
           className="btns"
           id="ctl-pointer"
+          style={{ fontSize: '15px' }}
           onClick={() => {
             const iframe = document.getElementsByClassName('output')[0];
             const pointer = document.getElementById('ctl-pointer');

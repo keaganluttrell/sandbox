@@ -31,6 +31,7 @@ export default function BoxItem({
       <iframe
         seamless
         srcDoc={runCode(item.html, item.css, item.js)}
+        sandbox="allow-scripts"
         frameBorder="0"
         className="box-preview"
         height="100vh"
