@@ -45,6 +45,10 @@
   display: none;
 }
 
+.panel-likes {
+  cursor: pointer;
+}
+
 i {
   padding: 5px;
 }
