@@ -117,6 +117,4 @@ export default function User({ setUser, user, userLikes, setUserLikes }) {
       </>
     );
   }
-
-
 };
