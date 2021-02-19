@@ -32,3 +32,10 @@ Navigate to http://localhost/ to see the page in action
 
 
 ![Alt text](/images/sandbox-tour2.gif "App Demo")
+
+## Screenshots
+
+![Alt text](/images/home.png "Home page")
+![Alt text](/images/signup.png "Signup page")
+![Alt text](/images/editor-h.png "Editor Horizontal")
+![Alt text](/images/editor-v.png "Editor Vertical")
