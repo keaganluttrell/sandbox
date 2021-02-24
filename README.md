@@ -20,7 +20,7 @@
 ## About
 
 This application is designed to be an a platform to share code. It uses an integrated
-development environment (IDE) that can process HTML, CSS, and JavaScript. Users can signup, login, build code from scratch, or copy and paste existing code into each IDE. Users can save, edit, and delete their work as needed. This application was built with a React, Express, and MySQL Stack.
+development environment (IDE) that can process HTML, CSS, and JavaScript. Users can signup, login, build code from scratch, or copy and paste existing code into each IDE. Users can save, edit, and delete their work as needed.
 
 ## Installation
 
