@@ -4,7 +4,7 @@
   <img alt="Keagan Luttrell" src="https://img.shields.io/badge/-Keagan%20Luttrell-blue?&style=for-the-badge&logo=linkedin&logoColor=white"/>
 </a>
 
-![visitors](https://visitor-badge.glitch.me/badge?page_id=keaganluttrell.mini-app-one)
+![visitors](https://visitor-badge.glitch.me/badge?page_id=keaganluttrell.sandbox)
 
 ## Contents:
 - [Sandbox](#welcome-to-sandbox)
